@@ -15,7 +15,10 @@ bloomfilter's performance overview
 
 next steps / tests
 =================
-a) try rdf library
+
+a) clean the code (check variables)
+
+b) try rdf library
 
 b) save objects on mongodb (subject/object + hash + distrib)
 
