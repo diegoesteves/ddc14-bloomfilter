@@ -2,7 +2,27 @@ ddc14-bloomfilter
 =================
 
 node js implementation of bloomfilter for compute number of links between 2 files
+this is the first release and should be adjusted...
+ 
+ 
+bloomfilter's performance overview
+=================
+:Defining bloomfilter parameters...  [0s 3.81267ms]
 
+:Indexing file dewiki-20140114-article-categories.ttl.ntriples...[3s 88.882374ms]
+
+:Lookup...total size of array is 575  [0s 27.010578ms]
+
+next steps / tests
+=================
+a) try rdf library
+
+b) save objects on mongodb (subject/object + hash + distrib)
+
+c) create a webservice
+
+full log
+=================
 esteves@estevesaksw:~/workspace/dynamicdatacloud$ node main-ddc2014.js dewiki-20140114-article-categories.ttl News-100.ttl.zip
 ******************************************************************
 Starting the Process
@@ -46,7 +66,7 @@ getUnique(News-100.ttl.ntriples)
 Starting bloomfilter
 
   :Defining bloomfilter parameters...
-  -> max expected fp rate		     : 0.012%
+  -> max expected fp rate		                 : 0.012%
   -> total of bits to allocate               : 28594429
   -> total of hash functions                 : 13
   -> ~number of itens to store in BlommFilter: 1521738
