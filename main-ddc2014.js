@@ -1,37 +1,8 @@
 /**@license
  * program: compute links between 2 datasets using bloomfilter
  * author: diego esteves (dnes85)
- * version: 0.2.0 (30-Nov-2014)
- 
- * 
- * links between resources
- * 1) try to store the objects+hash+dataset in mongoDB
- */
-
-//PAREI: VER COMO PASSAR OS PARAMETROS SEM SER GLOBAL! FALTA SO ISSO PRA BLOOMFILTER AJUSTE
-//DEPOIS TESTAR IMPLEMENTACAO EM NODE
-//ver aquirov smartmain E site http://www.sebastianseilund.com/nodejs-async-in-practice
-
-
-//dbpedia = 1.521.738 (nao deveria ser 1.521.648? )
-//news = 1.769
-
-/*
-dbpedia 
-parsed 6.173.488 triplas
-rapper -g dewiki-20140114-article-categories.ttl | cut -f1 -d '>' | sort -u | sed 's/<//' > subjects.dbpedia
-1.521.738 returned (considering resources)
-
-news
-12.289 triples
-rapper -g News-100.ttl | grep -v '"'  | cut -f3 -d '>' | sed 's/ <//' | sort -u > news.objects
-575 returned (considering resources)
-
-checking
-263 links
-comm -1 -2  news.objects subjects.dbpedia  | wc -l 
+ * version: 0.2.1 (01-Dez-2014)
 */
-
 var async = require('async');
 var smartrun = require('./smartstream2');
 var bf = require('./bloomfilter');
