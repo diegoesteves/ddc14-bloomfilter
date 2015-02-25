@@ -1,0 +1,7 @@
+*~
+*.swp
+tmp/**/*
+tempdeletar.js
+output.txt
+.idea
+node_modules
