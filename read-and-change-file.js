@@ -7,9 +7,14 @@ var prefix, sufx, newline;
 var fs = require('fs');
 var indexs = [];
 var check;
-fs.unlinkSync('./output.txt');
-console.log('successfully deleted ./output.txt');
-fs.readFileSync('./texto.txt').toString().split('\n').forEach(function (line) {
+var args = process.argv.slice(2);
+//fs.unlinkSync('./output.txt');
+fs.exists(args[1], function (exists) {
+    fs.unlinkSync(args[1]); console.log('successfully deleted ' + args[1]);
+});
+
+//fs.readFileSync('./texto.txt').toString().split('\n').forEach(function (line) {
+fs.readFileSync(args[0]).toString().split('\n').forEach(function (line) {
     //console.log(line);
     j=0;
     check = line.toString().indexOf(".put(");
@@ -25,7 +30,8 @@ fs.readFileSync('./texto.txt').toString().split('\n').forEach(function (line) {
             t1=line.toString().substring(indexs[0],indexs[1]);
             t2=line.toString().substring(indexs[2],indexs[3]+1);
             newline = prefix + t2 + ", " + t1 + sufx;
-            fs.appendFileSync('./output.txt', newline.toString() + "\n");
+            //fs.appendFileSync('./output.txt', newline.toString() + "\n");
+            fs.appendFileSync(args[1], newline.toString() + "\n");
         }
         else
         {
@@ -36,7 +42,8 @@ fs.readFileSync('./texto.txt').toString().split('\n').forEach(function (line) {
     }
     else
     {
-        fs.appendFileSync('./output.txt', line.toString() + "\n");
+        //fs.appendFileSync('./output.txt', line.toString() + "\n");
+        fs.appendFileSync(args[1], line.toString() + "\n");
     }
 
 
@@ -59,6 +66,6 @@ fs.readFileSync('./texto.txt').toString().split('\n').forEach(function (line) {
     */
 
 
-})
+});
 
 process.exit(0);
