@@ -3,5 +3,5 @@
 tmp/**/*
 tempdeletar.js
 output.txt
-.idea
-node_modules
+.idea/*
+node_modules/*
